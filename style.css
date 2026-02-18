@@ -1,0 +1,281 @@
+/* -------------- Variables -------------  */
+:root{
+  --ui-font: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+
+  --panel-bg: rgba(20,20,20,0.6);
+  --panel-border: 1px solid rgba(255,255,255,0.12);
+  --panel-radius: 12px;
+  --panel-blur: blur(6px);
+
+  --hover-brightness: brightness(1.1);
+
+  --z-ui: 9999;
+  --z-modal: 10000;
+
+  --ui-left: 10px;
+  --ui-topbar-top: 10px;
+  --ui-topbar-height: 40px;
+  --ui-legends-top: 80px;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+canvas {
+  display: block;
+}
+
+
+/* -------------- Hover effects -------------  */
+
+.ui-button:hover,
+.ui-modal-close:hover,
+.ui-legend .legend-minimize:hover,
+.ui-legend-launcher:hover {
+  filter: var(--hover-brightness);
+}
+
+
+/* -------------- TOP BUTTONS -------------  */
+
+.ui-bar{
+  position: fixed;
+  top: var(--ui-topbar-top);
+  left: var(--ui-left);
+  width: 100%;
+  height: var(--ui-topbar-height);
+
+  display: flex;
+  justify-content: flex-start;
+  gap: 20px;
+
+  z-index: var(--z-ui);
+}
+
+.ui-button {
+  padding: 10px 16px;
+  font-size: 14px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+
+.ui-button.blue {
+  background-color: #2196F3;
+}
+
+.info-button {
+  margin-left: auto;
+  margin-right: 20px;
+  border-radius: 30px;
+  background-color: #787878;
+}
+
+/* -------------- POPUPS -------------  */
+.ui-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.55);
+  display: none;             
+  align-items: center;
+  justify-content: center;
+  z-index: var(--z-modal);
+}
+
+.ui-modal {
+  margin: 10px;
+  width: min(720px, calc(100vw - 40px));
+  max-height: min(80vh, 720px);
+  overflow: auto;
+
+  background: rgba(25, 25, 28, 0.92);
+  backdrop-filter: blur(10px);
+  border: var(--panel-border);
+  border-radius: 16px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.45);
+
+  padding: 18px 18px 16px;
+  color: #fff;
+  font-family: var(--ui-font);
+}
+
+.ui-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.ui-modal-title {
+  font-size: 18px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.ui-modal-close {
+  appearance: none;
+  border: 0;
+  background: rgba(255,255,255,0.12);
+  color: white;
+  border-radius: 10px;
+  padding: 6px 10px;
+  cursor: pointer;
+}
+
+.ui-modal-body {
+  font-size: 16px;
+  white-space: pre-line;
+  line-height: 1.5;
+  opacity: 0.95;
+}
+
+.ui-modal-backdrop.is-open {
+  display: flex;
+}
+
+
+/* -------------- LEGENDS -------------  */
+
+.ui-legend {
+  position: fixed;
+  left: var(--ui-left);
+  top: var(--ui-legends-top);                 
+  width: 270px;
+  padding: 12px 12px;
+
+  background: var(--panel-bg);
+  backdrop-filter: var(--panel-blur);
+  border: var(--panel-border);
+  border-radius: var(--panel-radius);
+
+  color: white;
+  font-family: var(--ui-font);
+  font-size: 13px;
+
+  display: none;            
+  z-index: var(--z-ui);
+}
+
+.ui-legend h3 {
+  margin: 0 0 10px;
+  font-size: 14px;
+}
+
+.legend-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 4px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.legend-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+}
+
+.legend-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  flex: 0 0 auto;
+  border: 1px solid rgba(255,255,255,0.25);
+}
+
+.legend-name {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  opacity: 0.95;
+}
+
+.legend-count {
+  opacity: 0.9;
+}
+
+.legend-total {
+  margin-top: 10px;
+  font-weight: 700;
+  display: flex;
+  justify-content: space-between;
+}
+
+.ui-legend.right {
+  left: auto;
+  right: 10px;
+  top: 80px; 
+}
+
+
+.ui-legend .legend-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.ui-legend .legend-title {
+  margin: 0;
+  font-size: 14px;
+}
+
+.ui-legend .legend-minimize {
+  appearance: none;
+  border: 0;
+  background: rgba(255,255,255,0.12);
+  color: white;
+  border-radius: 10px;
+  padding: 4px 8px;
+  cursor: pointer;
+  font-size: 12px;
+  line-height: 1;
+}
+
+
+.ui-legend-launcher {
+  position: fixed;
+  top: var(--ui-legends-top);     
+  left: var(--ui-left);    
+  z-index: var(--z-ui);
+
+  width: 34px;
+  height: 34px;
+
+  display: none;
+
+  align-items: center;
+  justify-content: center;
+
+  background: var(--panel-bg);
+  backdrop-filter: var(--panel-blur);
+  border: var(--panel-border);
+  border-radius: var(--panel-radius);
+
+  color: white;
+  cursor: pointer;
+  user-select: none;
+}
+
+
+.ui-legend-launcher.right {
+  left: auto;
+  right: 10px;
+}
+
+.legend-footer .legend-name,
+.legend-footer .legend-count {
+  font-weight: normal;
+}
+
+.legend-footer .legend-count {
+  white-space: pre-line;
+}

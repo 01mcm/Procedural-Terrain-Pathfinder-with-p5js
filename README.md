@@ -4,6 +4,8 @@
 
 **How to use:** Switch to the **Top-Down view**, then hold **Shift + Left Click** to select the start and end points on the map.
 
+![Procedural Terrain Pathfinder Demo](Screenshot%202026-11-11%20152017.png)
+
 # Procedural Terrain Pathfinder (p5.js)
 
 A procedural 3D terrain generator with an A\* pathfinding layer and a UI

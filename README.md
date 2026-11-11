@@ -1,6 +1,7 @@
 ## Live Demo
 
 **[Try the interactive terrain pathfinder](https://01mcm.github.io/Procedural-Terrain-Pathfinder-with-p5js/)**
+
 **How to use:** Switch to the **Top-Down view**, then hold **Shift + Left Click** to select the start and end points on the map.
 
 # Procedural Terrain Pathfinder (p5.js)
